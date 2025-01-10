@@ -1,0 +1,33 @@
+.product-card {
+    border: 1px solid var(--surface-border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--surface-card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+    width: 100px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+} 
+
+.product-info {
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+}
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--success-color);
+}

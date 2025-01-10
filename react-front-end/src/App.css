@@ -1,0 +1,4 @@
+/* Importar los estilos de PrimeReact */
+@import 'primereact/resources/themes/lara-light-indigo/theme.css'; /* Tema */
+@import 'primereact/resources/primereact.min.css'; /* Estilos base */
+@import 'primeicons/primeicons.css'; /* Íconos */

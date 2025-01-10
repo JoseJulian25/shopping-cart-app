@@ -1,0 +1,11 @@
+.product-carousel {
+    margin: 0 auto;
+}
+
+.p-carousel {
+    margin-top: 1rem;
+}
+
+.p-carousel-next, .p-carousel-prev{
+    color: #2196f3;
+}

@@ -1,0 +1,7 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa del contenedor */
+    background-color: var(--surface-50); /* Fondo claro opcional */
+}

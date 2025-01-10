@@ -1,0 +1,28 @@
+.category-section {
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: var(--surface-100);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.category-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-color-secondary);
+}
+
+.category-description {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+.p-divider {
+    margin: 1.5rem auto;
+}
