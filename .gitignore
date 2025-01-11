@@ -26,3 +26,4 @@ dist-ssr
 
 # editor
 .editorconfig
+/sails.js-backend/config/local.js

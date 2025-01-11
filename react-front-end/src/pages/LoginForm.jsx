@@ -7,7 +7,7 @@ import {useAuth } from '../context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import authService from '../services/AuthService';
-import './Register/RegisterForm'
+import '../components/Register/RegisterForm.css'
 
 const LoginForm = () => {
     const { setAuthenticated } = useAuth();
