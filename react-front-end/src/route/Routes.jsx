@@ -1,7 +1,6 @@
-import { createBrowserRouter, Navigate, Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import React, { Suspense } from 'react';
 import ProtectedRoute from "./ProtectedRoute.jsx";
-import StrictRoute from "./RestrictRoute.jsx";
 import Loading from "../components/Loading/Loading.jsx";
 
 const AuthLayout = React.lazy(() => import('../layouts/AuthLayout'));
@@ -11,100 +10,38 @@ const RestrictRoute = React.lazy(() => import('./RestrictRoute'));
 const HomeLayout = React.lazy(() => import('../layouts/HomeLayout'));
 const ShoppingCartPage = React.lazy(() => import('../pages/ShoppingCartPage'));
 const CategorySection = React.lazy(() => import('../components/CategorySection/CategorySection'));
-/*
-const router = createBrowserRouter([
-    {
-        path: "/auth",
-        element: (
-            <Suspense fallback={<Loading />}>
-                <AuthLayout />
-            </Suspense>
-        ),
-        children: [
-            {
-                path: "register",
-                element: (
-                    <Suspense fallback={<Loading />}>
-                        <RestrictRoute>
-                            <RegisterForm />
-                        </RestrictRoute>
-                    </Suspense>
-                )
-            },
-            {
-                path: "login",
-                element: (
-                    <Suspense fallback={<Loading />}>
-                        <RestrictRoute>
-                            <LoginForm />
-                        </RestrictRoute>
-                    </Suspense>
-                )
-            }
-        ]
-    },
-    {
-        path: "/home",
-        element: (
-            <Suspense fallback={<Loading />}>
-                <HomeLayout />
-            </Suspense>
-        ),
-        children: [
-            {
-                path: "",
-                element: (
-                    <Suspense fallback={<Loading />}>
-                        <CategorySection />
-                    </Suspense>
-                )
-            },
-            {
-                path: "shopping-cart",
-                element: (
-                    <Suspense fallback={<Loading />}>
-                        <ProtectedRoute>
-                            <ShoppingCartPage />
-                        </ProtectedRoute>
-                    </Suspense>
-                )
-            }
-        ]
-    },
-    {
-        path: "*",
-        element: <Navigate to="/home" />
-    }
-]);
-*/
+
 
 function Router() {
     return (
         <Routes>
-            <Route path="/home" element={ isLoading({ children: <HomeLayout /> }) }>
-                <Route index element={ isLoading({children:  <CategorySection /> }) } />
-                <Route path="shopping-cart" element={ 
-                    isLoading( { children: 
-                        <ProtectedRoute>
-                            <ShoppingCartPage />
-                        </ProtectedRoute>
+            <Route path="/" element={isLoading({ children: <HomeLayout /> })}>
+                <Route path="/" element={isLoading({ children: <CategorySection /> })} />
+                <Route path="shopping-cart" element={
+                    isLoading({
+                        children:
+                            <ProtectedRoute>
+                                <ShoppingCartPage />
+                            </ProtectedRoute>
                     })
-            } />
+                } />
             </Route>
-            <Route path="/auth" element={ isLoading({
+            <Route path="/auth" element={isLoading({
                 children: <AuthLayout />
-            }) } />
-            <Route path="/register" element={ isLoading({
-                children: <StrictRoute>
-                    <RegisterForm />
-                </StrictRoute>
-                }) } />
-            <Route path="/login" element={ isLoading({
-                children: <StrictRoute>
-                    <LoginForm />
-                </StrictRoute>
-            }) } />
-            <Route path="*" element={ <Navigate to="/home" /> } />
+            })} >
+                <Route path="register" element={isLoading({
+                    children: <RestrictRoute>
+                        <RegisterForm />
+                    </RestrictRoute>
+                })} />
+                <Route path="login" element={isLoading({
+                    children: <RestrictRoute>
+                        <LoginForm />
+                    </RestrictRoute>
+                })} />
+            </Route>
+
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
 }
@@ -117,7 +54,6 @@ function isLoading({ children }) {
             {children}
         </Suspense>
     );
-
 }
 
 export default Router;
