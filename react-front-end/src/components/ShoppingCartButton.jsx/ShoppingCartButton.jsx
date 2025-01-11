@@ -37,7 +37,7 @@ const ShoppingCartButton = () =>  {
             setAuthDialogVisible(true)
             return;
        }
-        navigate("/shopping-cart"); 
+        navigate("shopping-cart"); 
     };
 
     return (
